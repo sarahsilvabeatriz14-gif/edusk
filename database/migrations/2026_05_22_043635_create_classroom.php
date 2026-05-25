@@ -11,11 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
+       Schema::create('classrooms', function (Blueprint $table) {
 
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('professor');
-            //
-        });
+    $table->id();
+
+    $table->string('name');
+
+    $table->string('teacher')->nullable();
+
+    $table->string('room')->nullable();
+
+    $table->string('schedule')->nullable();
+
+    $table->timestamps();
+
+}); 
     }
 
     /**
@@ -23,9 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table ->dropColumn('role');
-            //
-        });
+        Schema::dropIfExists('classrooms');
     }
 };

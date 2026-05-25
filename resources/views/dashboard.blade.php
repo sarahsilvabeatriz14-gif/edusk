@@ -8,27 +8,27 @@
 
 <div class="cards">
 
-    <div class="dashboard-card">
+    <a href="/students" class="dashboard-card">
 
         <h2>Total de Alunos</h2>
 
         <p>{{ \App\Models\Student::count() }}</p>
 
-    </div>
+    </a>
 
-    <div class="dashboard-card">
+    <a href="/teachers" class="dashboard-card">
 
         <h2>Professores</h2>
 
-        <p>0</p>
+        <p>{{ \App\Models\Teacher::count() }}</p>
 
-    </div>
+    </a>
 
     <div class="dashboard-card">
 
         <h2>Turmas</h2>
 
-        <p>0</p>
+        <p>{{$classrooms}}</p>
 
     </div>
 
