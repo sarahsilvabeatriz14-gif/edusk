@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Teacher;
+
+use App\Observers\TeacherObserver;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -24,8 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
-    }
+        $this->registerObservers();
 
+    }
     /**
      * Configure default behaviors for production-ready applications.
      */
@@ -47,4 +51,9 @@ class AppServiceProvider extends ServiceProvider
             : null,
         );
     }
+
+    private function registerObservers():void {
+        Teacher::observe(TeacherObserver::class);
+    }
+
 }

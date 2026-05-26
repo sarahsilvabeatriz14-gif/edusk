@@ -29,12 +29,14 @@ class TeacherController extends Controller
 
         Teacher::create([
 
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
+            'name'    => $request->name,
+            'email'   => $request->email,
+            'phone'   => $request->phone,
             'subject' => $request->subject
 
         ]);
+
+
 
         return redirect('/teachers')
         ->with('success', 'Professor cadastrado com sucesso!');
@@ -83,7 +85,7 @@ class TeacherController extends Controller
 
     public function show ($id)
     {
-        
+
     }
 
 }

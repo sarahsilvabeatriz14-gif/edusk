@@ -16,4 +16,6 @@ class Teacher extends Model
 
     ];
 
+    
+
 }

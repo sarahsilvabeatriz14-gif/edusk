@@ -8,22 +8,20 @@ use App\Http\Controllers\GradeController;
 use App\Http\Controllers\EnrollmentController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FrequencyController;
+use Illuminate\Support\Facades\Mail;
 
 Route::resource('frequencies', FrequencyController::class);
 
 Route::get('/sair', function() {
-
     Auth::logout();
-
     return redirect('/login');
-
 });
 
 Route::get('/dashboard', function () {
 
-    $students = \App\Models\Student::count();
+    $students   = \App\Models\Student::count();
 
-    $teachers = \App\Models\Teacher::count();
+    $teachers   = \App\Models\Teacher::count();
 
     $classrooms = \App\Models\Classroom::count();
 
@@ -50,3 +48,5 @@ Route::resource('enrollments', EnrollmentController::class)
     ->middleware('admin');
 
 require __DIR__.'/auth.php';
+
+

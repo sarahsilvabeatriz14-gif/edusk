@@ -28,7 +28,7 @@
 
         <h2>Turmas</h2>
 
-        <p>{{$classrooms}}</p>
+        {{--<p>{{$classrooms}}</p>--}}
 
     </div>
 
